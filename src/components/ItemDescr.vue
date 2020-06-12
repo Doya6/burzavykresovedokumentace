@@ -1,15 +1,15 @@
 <template>
     <div>
-        {{ item[0].nazev }} <br>
-        {{ item[0].rozmer }} <br>
-        {{ item[0].cena }} <br>
-        {{ item[0].autor }} <br>
+        {{ sketches[0].nazev }} <br>
+        {{ sketches[0].rozmer }} <br>
+        {{ sketches[0].cena }} <br>
+        {{ sketches[0].autor }} <br>
     </div>
 </template>
 
 <script>
 export default {
-    props: ['item']
+    props: ['sketches']
 }
 </script>
 

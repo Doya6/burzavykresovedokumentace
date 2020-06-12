@@ -4,7 +4,7 @@ export default [
         nazev: 'Policka',
 		autor: 'Hynek',
 		rozmer: '500x200x150',
-		obrazek: 'URL',
+		obrazek: 'abc.jpg',
 		description: 'policka koupelnova ...',
         kategorie: 'doplnky',
         podKategorie: 'doplnky koupelnove',

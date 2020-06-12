@@ -1,7 +1,7 @@
 <template>
     <div class="section-top">
         <img Class="logo" src="../../public/pics/logo.jpg">
-        <div Class="title"> BURZA VÝKRESOVÉ DOKUMENTACE </div>
+        <div Class="title"> <router-link to="/App"> BURZA VÝKRESOVÉ DOKUMENTACE </router-link></div>
                 
         <div class="top-section-buttos">
             
