@@ -17,13 +17,14 @@
 </template>
 
 <script>
-import Sketches from './assets/data/sketches.js';
-import SectionTop from './components/SectionTop.vue'
-import CategoryList from './components/CategoryList.vue'
-import ItemsList from './components/ItemsList.vue'
-import ItemPics from './components/ItemPics.vue'
-import ItemDescr from './components/ItemDescr.vue'
-import SectionBottom from './components/SectionBottom.vue'
+import Sketches from '../assets/data/sketches.js';
+
+import SectionTop from '../components/SectionTop.vue'
+import CategoryList from '../components/CategoryList.vue'
+import ItemsList from '../components/ItemsList.vue'
+import ItemPics from '../components/ItemPics.vue'
+import ItemDescr from '../components/ItemDescr.vue'
+import SectionBottom from '../components/SectionBottom.vue'
 
 
 export default {
@@ -37,7 +38,7 @@ export default {
   },
   data(){
     return {
-      items: ItemsData,
+      sketches: Sketches,
       ListOfItemsShow: true,
       ItemShow: true
     }
@@ -61,7 +62,7 @@ body{
 container{
   display:  flex;
   height: 480px;
-  background-image: url("assets/ContainerBackgroundImg.jpg");
+  background-image: url("../assets/ContainerBackgroundImg.jpg");
 }
 .itemDetail{
   display: flex;
