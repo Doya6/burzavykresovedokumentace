@@ -4,22 +4,20 @@
 
         <ul > 
             <li 
-            v-for="(category, index) in categories"
-            v-bind:key="index"
-            v-on:mouseover="mouseover"
-            v-on:mouseleave="mouseleave">
-            <a>{{ category.nazev }}</a>
+                v-for="(category, index) in categories"
+                v-bind:key="index"
+                v-on:mouseover="mouseover"
+                v-on:mouseleave="mouseleave">
+                {{ category.nazev }}
 
-            <ul class="subcategory-list-items"
-                v-bind:class="{ isOpen }">
-                <li 
-                    v-for="(subcat, index) in category.subcategory"
-                    v-bind:key="index">                   
-                    <a>
+                <ul class="subcategory-list-items" 
+                    v-if="isOpen">
+                    <li 
+                        v-for="(subcat, index) in category.subcategory"
+                        v-bind:key="index">                   
                         {{ subcat.nazev }}
-                    </a>
-                </li>
-            </ul>
+                    </li>
+                </ul>
 
             </li>
         </ul>
@@ -63,21 +61,15 @@ export default {
     margin: 5px;
     cursor: pointer;
 }
-ul{
-    list-style-type: none;
-}
 .category-list ul{
     display: flex;
     justify-content: space-around;
     flex: 1 1 90%;
+    list-style-type: none;
 }
-.category-list > ul > li > a {
-    display: block;
-    padding: 20px;
-    cursor: pointer;    
-    text-decoration: none;
+.category-list li{
+    cursor: pointer;
 }
-
 .subcategory-list-items{
     position: absolute;
     display: none;
@@ -86,17 +78,10 @@ ul{
     background-color: lightgrey; 
     border: 1px solid black; 
 }
-.subcategory-list-items li {
-    width: 250px;
-}
-.subcategory-list-items li a {
-    padding: 10px;
+.subcategory-list-items li{
+    padding: 5px;
     text-decoration: none;
     cursor: pointer;
 }
-.isOpen {
-    display: flex;
-}
-
 
 </style>
