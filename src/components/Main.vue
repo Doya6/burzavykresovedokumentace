@@ -5,10 +5,15 @@
     <containt>
       <categoryList Class="category-list" />
       <container>  
-        <itemsList Class="itemsList" v-if="ListOfItemsShow" />
-        <itemDetail Class="itemDetail" v-if="ItemShow">
+        <itemsList Class="itemsList" v-if="ListOfItemsShow"
+         v-bind:sketches="sketches" 
+         v-on:setActiveItem="setActive"/>
+        <itemDetail Class="itemDetail"
+         v-if="ItemShow">
           <itemPics Class="itemPics"  />
-          <itemDescr Class="itemDescr" v-bind:item="sketches" />
+          <itemDescr Class="itemDescr" 
+          v-bind:sketches="sketches"
+          v-bind:activeItem="activeItem"/>
         </itemDetail>
       </container>
     </containt>
@@ -18,14 +23,12 @@
 
 <script>
 import Sketches from '../assets/data/sketches.js';
-
 import SectionTop from '../components/SectionTop.vue'
 import CategoryList from '../components/CategoryList.vue'
 import ItemsList from '../components/ItemsList.vue'
 import ItemPics from '../components/ItemPics.vue'
 import ItemDescr from '../components/ItemDescr.vue'
 import SectionBottom from '../components/SectionBottom.vue'
-
 
 export default {
   components: {
@@ -34,15 +37,21 @@ export default {
     itemsList:ItemsList,
     itemPics:ItemPics,
     itemDescr:ItemDescr,
-    sectionBottom:SectionBottom
+    sectionBottom:SectionBottom,
   },
   data(){
     return {
       sketches: Sketches,
       ListOfItemsShow: true,
-      ItemShow: true
+      ItemShow: true,
+      activeItem: ''
     }
   },
+  methods:{
+    setActive(index){
+      this.activeItem = index;
+    },
+  }
 
 }
 </script>

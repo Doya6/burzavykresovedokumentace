@@ -1,17 +1,20 @@
 <template>
     <div>
-        <div class="item-list-main-name">name</div>
-        <div class="item-list-main-pic">mainPic</div> 
-        <div class="item-list-main-name">name</div>
-        <div class="item-list-main-pic">mainPic</div>
-        <div class="item-list-main-name">name</div>
-        <div class="item-list-main-pic">mainPic</div>
+        
+      <div v-for="(item, index) in sketches"
+        v-bind:key="item.id"
+        v-on:click="$emit('setActiveItem', index)">  
+        
+        {{ item.obrazek }}
+
+      </div>
 
     </div>
   </template>
 
 <script>
 export default {
+    props: ['sketches'],
     
 }
 </script>

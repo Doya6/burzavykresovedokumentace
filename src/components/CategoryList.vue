@@ -6,12 +6,12 @@
             <li 
                 v-for="(category, index) in categories"
                 v-bind:key="index"
-                v-on:mouseover="mouseover"
+                v-on:mouseover="mouseover(index)"
                 v-on:mouseleave="mouseleave">
                 {{ category.nazev }}
 
                 <ul class="subcategory-list-items" 
-                    v-if="isOpen">
+                    v-if="isOpen === index">
                     <li 
                         v-for="(subcat, index) in category.subcategory"
                         v-bind:key="index">                   
@@ -33,15 +33,15 @@ export default {
     data(){
         return {
       categories: Categories,
-      isOpen: false
+      isOpen: ''
     }
   },
   methods: {
-        mouseover: function () {
-            this.isOpen = true;
+        mouseover: function (index) {
+            this.isOpen = index;
         },
         mouseleave: function () {
-            this.isOpen = false;
+            this.isOpen = "";
         }
     }
 }
@@ -77,6 +77,7 @@ export default {
     padding: 0;
     background-color: lightgrey; 
     border: 1px solid black; 
+    z-index: 1;
 }
 .subcategory-list-items li{
     padding: 5px;
