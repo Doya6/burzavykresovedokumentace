@@ -109,8 +109,12 @@ export default {
     margin: 10px;
     flex: 0 1 45%;
     font-size: 2vw;
-    color: white;
-    text-shadow: gray 3px 3px;
+    
+}
+.title a {
+    color: gray;
+    text-decoration: none;
+    text-shadow:white 1px 1px;
 }
 .top-section-buttos{
     display: flex;

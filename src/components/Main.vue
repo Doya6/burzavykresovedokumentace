@@ -3,17 +3,24 @@
   <div id="main">
     <sectionTop Class="section-top" />
     <containt>
-      <categoryList Class="category-list" />
+      <categoryList Class="category-list" 
+      v-on:selectCategory="selectCategory"/>
+
       <container>  
-        <itemsList Class="itemsList" v-if="ListOfItemsShow"
-         v-bind:sketches="sketches" 
+        <itemsList Class="itemsList" v-if="itemsListShow"
+         v-bind:selectedItems="selectedItems" 
          v-on:setActiveItem="setActive"/>
+
         <itemDetail Class="itemDetail"
-         v-if="ItemShow">
-          <itemPics Class="itemPics"  />
+         v-if="itemsDetailShow">
+
+          <itemPics Class="itemPics"
+          /> 
+
           <itemDescr Class="itemDescr" 
-          v-bind:sketches="sketches"
+          v-bind:selectedItems="selectedItems"
           v-bind:activeItem="activeItem"/>
+
         </itemDetail>
       </container>
     </containt>
@@ -44,13 +51,25 @@ export default {
       sketches: Sketches,
       ListOfItemsShow: true,
       ItemShow: true,
-      activeItem: ''
+      activeItem: '',
+      itemsListShow: false,
+      itemsDetailShow: false,
+      selectedItems: ''
     }
   },
   methods:{
     setActive(index){
       this.activeItem = index;
+      this.itemsDetailShow = true;
     },
+    selectCategory: function(cat, subCat){
+      let selectedItems = this.sketches.filter(sketch => sketch.kategorie == cat && sketch.podKategorie == subCat)
+      this.selectedItems = selectedItems;
+        if(this.selectedItems == ''){
+          window.alert("Tato kategorie je prázdná.");
+        };
+      this.itemsListShow = true;
+    }
   }
 
 }
@@ -72,6 +91,7 @@ container{
   display:  flex;
   height: 480px;
   background-image: url("../assets/ContainerBackgroundImg.jpg");
+    
 }
 .itemDetail{
   display: flex;
@@ -80,4 +100,5 @@ container{
   flex: 1 1 80%;
   height: 100%;
 }
+
 </style>

@@ -1,11 +1,13 @@
 <template>
     <div>
         
-      <div v-for="(item, index) in sketches"
+      <div v-for="(item, index) in selectedItems"
         v-bind:key="item.id"
         v-on:click="$emit('setActiveItem', index)">  
         
         {{ item.obrazek }}
+
+        
 
       </div>
 
@@ -14,8 +16,8 @@
 
 <script>
 export default {
-    props: ['sketches'],
-    
+    props: ['selectedItems'],
+        
 }
 </script>
 

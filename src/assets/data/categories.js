@@ -1,8 +1,8 @@
 export default [
     {id: "01", nazev: "šatna",
-	subcategory:[{id:"01", nazev: "vysoké"},
-			{id:"02", nazev: "komody"},
-			{id:"03", nazev: "rohové"}]
+	subcategory:[{id:"01", nazev: "skříně"},
+			{id:"02", nazev: "skříně rohové"},
+			{id:"03", nazev: "komody"}]
 	},
 	
 	{id: "02", nazev: "jídelna",
@@ -29,5 +29,12 @@ export default [
 			{id:"02", nazev: "skříňky"},
 			{id:"03", nazev: "psací stoly a sety"},
 			{id:"04", nazev: "knihovny"}]
+	},
+	
+	{id: "06", nazev: "zahrada",
+	subcategory:[{id:"01", nazev: "lavičky"},
+			{id:"02", nazev: "stoly"},
+			{id:"03", nazev: "zahradní sety"},
+			{id:"04", nazev: "lehátka"}]
 	}
 ]

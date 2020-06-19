@@ -6,8 +6,8 @@ export default [
     rozmer: '500x500x1000',
     obrazek: 'KZS-00001',
     popis: 'zidle - kuchyňská',
-    kategorie: 'kuchyňský nábytek',
-    podKategorie: 'zidle',
+    kategorie: 'jídelna',
+    podKategorie: 'židle',
     cenovaKategorie: 'STD',
     cena: 150
     },
@@ -18,7 +18,7 @@ export default [
     rozmer: '500x200x150',
     obrazek: 'KSS-00002',
     popis: 'stůl - kuchyňský',
-    kategorie: 'kuchyňský nábytek',
+    kategorie: 'jídelna',
     podKategorie: 'stoly',
     cenovaKategorie: 'STD',
     cena: 150
@@ -30,8 +30,8 @@ export default [
     rozmer: '800x900x2000',
     obrazek: 'KSS-00003',
     popis: 'skříň - koupelnová sestava',
-    kategorie: 'koupelnový nábytek',
-    podKategorie: 'skriň',
+    kategorie: 'koupelna',
+    podKategorie: 'skříňky',
     cenovaKategorie: 'STD',
     cena: 150
     },
@@ -42,8 +42,8 @@ export default [
     rozmer: '800x900x2000',
     obrazek: 'SSS-00004',
     popis: 'skříň - šatní',
-    kategorie: 'šatny',
-    podKategorie: 'skriň',
+    kategorie: 'šatna',
+    podKategorie: 'skříně',
     cenovaKategorie: 'STD',
     cena: 150
     },
@@ -55,7 +55,7 @@ export default [
     obrazek: 'SSS-00005',
     popis: 'stolek - konferenční',
     kategorie: 'obývací pokoj',
-    podKategorie: 'stolky',
+    podKategorie: 'stoly',
     cenovaKategorie: 'DES',
     cena: 450
     },
@@ -66,7 +66,7 @@ export default [
     rozmer: '1500x800x1000',
     obrazek: 'SSS-00006',
     popis: 'lavička - zahradní',
-    kategorie: 'zahradní nábytek',
+    kategorie: 'zahrada',
     podKategorie: 'lavičky',
     cenovaKategorie: 'DIY',
     cena: 100
@@ -94,6 +94,17 @@ export default [
     podKategorie: 'sety',
     cenovaKategorie: 'DES',
     cena: 450
-    }
-	
+    },
+	{
+    id: 'SSS-00009',
+    nazev: 'Stolek',
+    autor: 'Hynek',
+    rozmer: '900x900x500',
+    obrazek: 'SSS-00009',
+    popis: 'stolek - konferenční',
+    kategorie: 'obývací pokoj',
+    podKategorie: 'stoly',
+    cenovaKategorie: 'DES',
+    cena: 4500
+    },
 ]

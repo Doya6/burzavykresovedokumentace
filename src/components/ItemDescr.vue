@@ -1,15 +1,15 @@
 <template>
     <div>
-        Nazev:{{ sketches[activeItem].nazev }} <br>
-        {{ 'rozmer:' }} <br>
-        {{ 'cena:' }} <br>
-        {{ 'autor:' }} <br>
+        Nazev:{{ selectedItems[activeItem].nazev }} <br>
+        Rozmer: {{ selectedItems[activeItem].rozmer }} <br>
+        Cena: {{ selectedItems[activeItem].cena }} <br>
+        Autor: {{ selectedItems[activeItem].autor }} <br>
     </div>
 </template>
 
 <script>
 export default {
-    props: ['sketches', 'activeItem']
+    props: ['selectedItems', 'activeItem']
 }
 </script>
 
@@ -18,9 +18,10 @@ export default {
   width: 40%;
   height: 80%;
   border: 2px dashed black;
-  opacity: 90%;
   font-size: 150%;
-  color:black;
+  background-color: gray;
+  color:white;
   margin: 20px;
+  
 }
 </style>

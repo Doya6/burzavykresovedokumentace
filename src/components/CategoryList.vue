@@ -1,7 +1,6 @@
 <template>
     <div class="category-list">
         <img class="category-list-arrows" id="arrow_left" src="../assets/triangle-left.png">
-
         <ul > 
             <li 
                 v-for="(category, index) in categories"
@@ -13,8 +12,9 @@
                 <ul class="subcategory-list-items" 
                     v-if="isOpen === index">
                     <li 
-                        v-for="(subcat, index) in category.subcategory"
-                        v-bind:key="index">                   
+                        v-for="(subcat, index2) in category.subcategory"
+                        v-bind:key="index2" 
+                        v-on:click="selectCategory(category.nazev, subcat.nazev)">                  
                         {{ subcat.nazev }}
                     </li>
                 </ul>
@@ -41,6 +41,10 @@ export default {
             this.isOpen = index;
         },
         mouseleave: function () {
+            this.isOpen = "";
+        },
+        selectCategory(catNazev, subcatNazev){
+            this.$emit('selectCategory', catNazev, subcatNazev);
             this.isOpen = "";
         }
     }
