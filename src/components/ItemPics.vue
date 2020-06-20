@@ -42,7 +42,7 @@ export default {
   justify-content: center;
   align-items: center;
   width: 50%;
-  height: 60%;
+  height: 80%;
   background-color: rgb(236, 236, 236);
   overflow: hidden;
 }

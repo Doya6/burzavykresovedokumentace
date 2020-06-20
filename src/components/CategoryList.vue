@@ -81,7 +81,6 @@ export default {
     flex-direction: column;    
     padding: 0;
     background-color: lightgrey; 
-    border: 1px solid black; 
     z-index: 1;
 }
 .subcategory-list-items li{

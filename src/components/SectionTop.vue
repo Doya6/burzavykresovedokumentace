@@ -19,10 +19,14 @@
         <div class="title"> BURZA VÝKRESOVÉ DOKUMENTACE </div>
         <div class="lang-currency-selector">
             <div class="langSelector">
-                <div class="langCZ" v-on:click="switchCZ" v-bind:class='czColor' id="cz">
+                <div class="langCZ" 
+                 v-on:click="switchCZ"
+                 v-bind:class='czColor' id="cz">
                     <p>CZ</p>
                 </div>
-                <div class="langEN" v-on:click="switchEN" v-bind:class='enColor' id="en">
+                <div class="langEN"
+                 v-on:click="switchEN"
+                 v-bind:class='enColor' id="en">
                     <p>EN</p>
                 </div>
             </div>    
@@ -41,55 +45,50 @@
 export default {    
     data() {
         return {
-            currLang:'cz',
             czColor: 'red',
             enColor: 'white',
-            message: {
-            en: 'enenenen',
-            cz: 'czczczcz',
-            },
             currency: 'czk',
             colorCZK: 'red',
             colorEUR: 'white',
-            colorUSD: 'white'
+            colorUSD: 'white',
         }
     },
     methods: {
 		switchEN() {
-				this.currLang = 'en';
-				this.enColor = 'red';
-                this.czColor = 'white';
+            this.enColor = 'red';
+            this.czColor = 'white';
+            this.$i18n.locale = "en";
 		},
 		switchCZ() {
-				this.currLang = 'cz';
-				this.czColor = 'red';
-				this.enColor = 'white';
+            this.czColor = 'red';
+            this.enColor = 'white';
+            this.$i18n.locale = "cs";
         },
         switchCurrency(curr) {
-                if (curr === 'czk'){
-                    this.currency = 'czk'
-                    this.colorCZK = 'red'
-                    this.colorEUR = 'white'
-                    this.colorUSD = 'white'
-                } else if (curr === 'eur'){
-                    this.currency = 'eur'
-                    this.colorCZK = 'white'
-                    this.colorEUR = 'red'
-                    this.colorUSD = 'white'
-                } else if (curr === 'usd'){
-                    this.currency = 'usd'
-                    this.colorCZK = 'white'
-                    this.colorEUR = 'white'
-                    this.colorUSD = 'red'
-                }
-         },
+            if (curr === 'czk'){
+                this.currency = 'czk'
+                this.colorCZK = 'red'
+                this.colorEUR = 'white'
+                this.colorUSD = 'white'
+            } else if (curr === 'eur'){
+                this.currency = 'eur'
+                this.colorCZK = 'white'
+                this.colorEUR = 'red'
+                this.colorUSD = 'white'
+            } else if (curr === 'usd'){
+                this.currency = 'usd'
+                this.colorCZK = 'white'
+                this.colorEUR = 'white'
+                this.colorUSD = 'red'
+            }
+        }
     }
 }
 </script>
 
 <style>
 :root {
-    --background-Losos: rgb(245, 153, 153);
+    --background-Losos: rgb(108, 70, 245);
 }
 .section-top{
     width: 100%;
@@ -108,9 +107,9 @@ export default {
     margin: 10px;
     flex: 0 1 60%;
     font-size: 2vw;
-    color: gray;
+    color: white;
     text-decoration: none;
-    text-shadow:white 1px 1px;
+    
 }
 .top-section-buttos{
     display: flex;
