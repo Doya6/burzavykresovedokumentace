@@ -1,11 +1,14 @@
 <template>
     <div>
         
-      <div v-for="(item, index) in selectedItems"
+      <div class="itemsList"
+        v-for="(item, index) in selectedItems"
         v-bind:key="item.id"
         v-on:click="$emit('setActiveItem', index)">  
         
-        {{ item.obrazek }}
+       <img class="item-list-main-pic"
+        v-bind:src="require(`../assets/Pics/${item.nahled}.jpg`)">
+        {{ item.popis }}
 
         
 
@@ -36,8 +39,5 @@ export default {
 }
 .item-list-main-pic{
   width: 80%;
-  height: 30%;
-  flex: 0 0 30%;
-  border: 1px solid black;
 }
 </style>

@@ -14,7 +14,7 @@
                     <li 
                         v-for="(subcat, index2) in category.subcategory"
                         v-bind:key="index2" 
-                        v-on:click="selectCategory(category.nazev, subcat.nazev)">                  
+                        v-on:click="selectCategory(category.nazev, subcat.nazev, )">                  
                         {{ subcat.nazev }}
                     </li>
                 </ul>
