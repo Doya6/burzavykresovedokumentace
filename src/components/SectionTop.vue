@@ -3,7 +3,7 @@
         <img Class="logo" src="../../public/pics/logo.jpg">
         <div Class="title"> <router-link to="../components/Home"> BURZA VÝKRESOVÉ DOKUMENTACE </router-link></div>
                 
-        <div class="top-section-buttos">
+        <!--<div class="top-section-buttos">
             
             <button class="top-section-button">DESIGN
                 <p class="cost-symbol"> $ $ $ </p>
@@ -15,7 +15,7 @@
                 <p class="cost-symbol"> $ </p>
             </button>
             <button class="top-section-button">All</button>
-        </div>
+        </div>-->
         
         <div class="lang-currency-selector">
             <div class="langSelector">
@@ -82,7 +82,6 @@ export default {
                     this.colorEUR = 'white'
                     this.colorUSD = 'red'
                 }
- 
          },
     }
 }
@@ -107,7 +106,7 @@ export default {
 }
 .title{
     margin: 10px;
-    flex: 0 1 45%;
+    flex: 0 1 60%;
     font-size: 2vw;
     
 }

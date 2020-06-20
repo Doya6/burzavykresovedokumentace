@@ -1,18 +1,39 @@
 <template>
     <div>
-        <img class="category-list-arrows" id="arrow_left" src="../assets/triangle-left.png">
+        <img class="category-list-arrows" id="arrow_left" src="../assets/triangle-left.png"
+          v-on:click="previousPic()">
         <div class="category-list-items"> 
         
+        <img class="item-list-main-pic"
+        v-bind:src="require(`../assets/Pics/${selectedItemPictures[picIndex]}.jpg`)">
+
         {{ selectedItemPictures }}
 
         </div>
-        <img class="category-list-arrows" id="arrow_left" src="../assets/triangle-right.png">
+        <img class="category-list-arrows" id="arrow_left" src="../assets/triangle-right.png"
+         v-on:click="nextPic()">
     </div>
 </template>
 
 <script>
 export default {
-  props: ['selectedItemPictures']
+  props: ['selectedItemPictures'],
+
+  data(){
+    return{
+      picIndex: 0 
+    }
+  },
+
+  methods:{
+    previousPic(){
+      if (this.picIndex !== 0) {this.picIndex --};
+    },
+    nextPic(){
+      if (this.picIndex < this.selectedItemPictures.length - 1) {this.picIndex ++};
+    }
+
+  }
     
 }
 </script>

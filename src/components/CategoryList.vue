@@ -1,8 +1,7 @@
 <template>
     <div class="category-list">
-        <img class="category-list-arrows" id="arrow_left" src="../assets/triangle-left.png">
-        <ul > 
-            <li 
+<ul > 
+            <li v-bind:class="selectedCategoryMarked === index && 'ramecek'"
                 v-for="(category, index) in categories"
                 v-bind:key="index"
                 v-on:mouseover="mouseover(index)"
@@ -14,15 +13,14 @@
                     <li 
                         v-for="(subcat, index2) in category.subcategory"
                         v-bind:key="index2" 
-                        v-on:click="selectCategory(category.nazev, subcat.nazev, )">                  
+                        v-on:click="selectCategory(category.nazev, subcat.nazev, index )">                  
                         {{ subcat.nazev }}
                     </li>
                 </ul>
 
             </li>
         </ul>
-        <img class="category-list-arrows" id="arrow_left" src="../assets/triangle-right.png">
-    </div>
+</div>
 </template>
 
 <script>
@@ -33,7 +31,8 @@ export default {
     data(){
         return {
       categories: Categories,
-      isOpen: ''
+      isOpen: '',
+      selectedCategoryMarked: ''
     }
   },
   methods: {
@@ -43,9 +42,10 @@ export default {
         mouseleave: function () {
             this.isOpen = "";
         },
-        selectCategory(catNazev, subcatNazev){
+        selectCategory(catNazev, subcatNazev, index ){
             this.$emit('selectCategory', catNazev, subcatNazev);
-            this.isOpen = "";
+            this.isOpen = false;
+            this.selectedCategoryMarked = index;
         }
     }
 }
@@ -73,6 +73,7 @@ export default {
 }
 .category-list li{
     cursor: pointer;
+    padding: 5px;
 }
 .subcategory-list-items{
     position: absolute;
@@ -87,6 +88,9 @@ export default {
     padding: 5px;
     text-decoration: none;
     cursor: pointer;
+}
+.ramecek{
+  border: 1px solid black;
 }
 
 </style>

@@ -7,7 +7,8 @@
         v-on:click="$emit('setActiveItem', index, item.obrazek)">  
         
        <img class="item-list-main-pic"
-        v-bind:src="require(`../assets/Pics/${item.nahled}.jpg`)">
+        v-bind:src="require(`../assets/Pics/${item.nahled}.jpg`)"
+        v-on:click="$emit('backgroundCleaner')">
         
         {{ item.popis }}
 

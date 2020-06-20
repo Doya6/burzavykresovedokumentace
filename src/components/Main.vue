@@ -6,10 +6,11 @@
       <categoryList Class="category-list" 
       v-on:selectCategory="selectCategory"/>
 
-      <div class="container">  
+      <div class="container" v-bind:class="{'containerBackground': containerBackgroundShow}">  
         <itemsList Class="itemsList" v-if="itemsListShow"
          v-bind:selectedItems="selectedItems" 
-         v-on:setActiveItem="setActive"/>
+         v-on:setActiveItem="setActive"
+         v-on:backgroundCleaner="backgroundCleaner"/>
 
         <div class="itemDetail"
          v-if="itemsDetailShow">
@@ -56,7 +57,8 @@ export default {
       itemsListShow: false,
       itemsDetailShow: false,
       selectedItems: '',
-      selectedItemPictures: ''
+      selectedItemPictures: '',
+      containerBackgroundShow: true
     }
   },
   methods:{
@@ -72,6 +74,11 @@ export default {
           window.alert("Tato kategorie je prázdná.");
         };
       this.itemsListShow = true;
+      this.itemsDetailShow = false;
+     
+    },
+    backgroundCleaner: function(){
+      this.containerBackgroundShow = false;
     }
   }
 
@@ -88,13 +95,13 @@ body{
   min-width: 600px;
   font-family: sans-serif;
   font-size: 100%;
-  
 }
 .container{
   display:  flex;
   height: 480px;
+}
+.containerBackground{
   background-image: url("../assets/ContainerBackgroundImg.jpg");
-    
 }
 .itemDetail{
   display: flex;
@@ -103,5 +110,6 @@ body{
   flex: 1 1 80%;
   height: 100%;
 }
+
 
 </style>
