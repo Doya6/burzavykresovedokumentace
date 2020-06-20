@@ -2,28 +2,29 @@
 <!--Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>--->
   <div id="main">
     <sectionTop Class="section-top" />
-    <containt>
+    <div class="containt">
       <categoryList Class="category-list" 
       v-on:selectCategory="selectCategory"/>
 
-      <container>  
+      <div class="container">  
         <itemsList Class="itemsList" v-if="itemsListShow"
          v-bind:selectedItems="selectedItems" 
          v-on:setActiveItem="setActive"/>
 
-        <itemDetail Class="itemDetail"
+        <div class="itemDetail"
          v-if="itemsDetailShow">
 
           <itemPics Class="itemPics"
+          v-bind:selectedItemPictures="selectedItemPictures"
           /> 
 
           <itemDescr Class="itemDescr" 
           v-bind:selectedItems="selectedItems"
           v-bind:activeItem="activeItem"/>
 
-        </itemDetail>
-      </container>
-    </containt>
+        </div>
+      </div>
+    </div>
     <sectionBottom Class="sectionBottom" />
   </div>
 </template>
@@ -54,12 +55,14 @@ export default {
       activeItem: '',
       itemsListShow: false,
       itemsDetailShow: false,
-      selectedItems: ''
+      selectedItems: '',
+      selectedItemPictures: ''
     }
   },
   methods:{
-    setActive(index){
+    setActive(index, obrazek){
       this.activeItem = index;
+      this.selectedItemPictures = obrazek;
       this.itemsDetailShow = true;
     },
     selectCategory: function(cat, subCat){
@@ -87,7 +90,7 @@ body{
   font-size: 100%;
   
 }
-container{
+.container{
   display:  flex;
   height: 480px;
   background-image: url("../assets/ContainerBackgroundImg.jpg");

@@ -4,10 +4,11 @@
       <div class="itemsList"
         v-for="(item, index) in selectedItems"
         v-bind:key="item.id"
-        v-on:click="$emit('setActiveItem', index)">  
+        v-on:click="$emit('setActiveItem', index, item.obrazek)">  
         
        <img class="item-list-main-pic"
         v-bind:src="require(`../assets/Pics/${item.nahled}.jpg`)">
+        
         {{ item.popis }}
 
         

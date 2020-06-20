@@ -2,7 +2,9 @@
     <div>
         <img class="category-list-arrows" id="arrow_left" src="../assets/triangle-left.png">
         <div class="category-list-items"> 
-        Pics
+        
+        {{ selectedItemPictures }}
+
         </div>
         <img class="category-list-arrows" id="arrow_left" src="../assets/triangle-right.png">
     </div>
@@ -10,6 +12,7 @@
 
 <script>
 export default {
+  props: ['selectedItemPictures']
     
 }
 </script>
