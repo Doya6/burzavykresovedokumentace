@@ -1,13 +1,13 @@
 <template>
 <!--Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>--->
   <div id="main">
-    <sectionTop Class="section-top" />
+    <sectionTop class="section-top" />
     <div class="containt">
-      <categoryList Class="category-list" 
+      <categoryList class="category-list" 
       v-on:selectCategory="selectCategory"/>
 
       <div class="container" v-bind:class="{'containerBackground': containerBackgroundShow}">  
-        <itemsList Class="itemsList" v-if="itemsListShow"
+        <itemsList class="itemsList" v-if="itemsListShow"
          v-bind:selectedItems="selectedItems" 
          v-on:setActiveItem="setActive"
          v-on:backgroundCleaner="backgroundCleaner"/>
@@ -15,11 +15,11 @@
         <div class="itemDetail"
          v-if="itemsDetailShow">
 
-          <itemPics Class="itemPics"
+          <itemPics class="itemPics"
           v-bind:selectedItemPictures="selectedItemPictures"
           /> 
 
-          <itemDescr Class="itemDescr" 
+          <itemDescr class="itemDescr" 
           v-bind:selectedItems="selectedItems"
           v-bind:activeItem="activeItem"/>
 
@@ -95,20 +95,37 @@ body{
   min-width: 600px;
   font-family: sans-serif;
   font-size: 100%;
+  overflow: hidden;
 }
 .container{
   display:  flex;
-  height: 480px;
+  height: calc(100vh - 180px);
 }
 .containerBackground{
   background-image: url("../assets/ContainerBackgroundImg.jpg");
 }
+.itemsList{
+  overflow: auto;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: 0 0 20%;
+  background-color: lightgray;
+}
 .itemDetail{
   display: flex;
-  justify-content: center;
   align-items: center;
   flex: 1 1 80%;
   height: 100%;
+  padding: 30px;
+}
+.itemPics{
+  flex: 1 1 60%;
+}
+.itemDescr{
+  flex: 1 1 40%;
+  margin: 30px;
 }
 
 

@@ -1,45 +1,39 @@
 <template>
-    <div>
-        
-      <div class="itemsList"
-        v-for="(item, index) in selectedItems"
-        v-bind:key="item.id"
-        v-on:click="$emit('setActiveItem', index, item.obrazek)">  
-        
-       <img class="item-list-main-pic"
+  <div>
+    <div
+      class="itemList"
+      v-for="(item, index) in selectedItems"
+      v-bind:key="item.id"
+      v-on:click="$emit('setActiveItem', index, item.obrazek)"
+    >
+      <img
+        class="item-list-main-pic"
         v-bind:src="require(`../assets/Pics/${item.nahled}.jpg`)"
-        v-on:click="$emit('backgroundCleaner')">
-        
-        {{ item.popis }}
+        v-on:click="$emit('backgroundCleaner')"
+      />
 
-        
-
-      </div>
-
+      {{ item.popis }}
     </div>
-  </template>
+  </div>
+</template>
 
 <script>
 export default {
-    props: ['selectedItems'],
-        
-}
+  props: ["selectedItems"]
+};
 </script>
 
-<style>
-.itemsList{
+<style scoped>
+.itemList {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  flex: 0 0 20%;
-  height: 100%;
-  background-color: lightgray;
 }
-.item-list-main-name{
+.item-list-main-name {
   align-self: flex-start;
 }
-.item-list-main-pic{
+.item-list-main-pic {
   width: 80%;
 }
+
 </style>

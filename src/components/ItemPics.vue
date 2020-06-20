@@ -1,13 +1,11 @@
 <template>
-    <div>
+    <div class="itemPics">
         <img class="category-list-arrows" id="arrow_left" src="../assets/triangle-left.png"
           v-on:click="previousPic()">
         <div class="category-list-items"> 
         
         <img class="item-list-main-pic"
         v-bind:src="require(`../assets/Pics/${selectedItemPictures[picIndex]}.jpg`)">
-
-        {{ selectedItemPictures }}
 
         </div>
         <img class="category-list-arrows" id="arrow_left" src="../assets/triangle-right.png"
@@ -38,7 +36,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .itemPics{
   display: flex;
   justify-content: center;
@@ -46,6 +44,11 @@ export default {
   width: 50%;
   height: 60%;
   background-color: rgb(236, 236, 236);
+  overflow: hidden;
+}
+.item-list-main-pic{
+  width: 100%;
+  
 }
 
 </style>

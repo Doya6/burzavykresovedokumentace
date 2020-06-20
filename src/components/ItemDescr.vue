@@ -1,22 +1,25 @@
 <template>
     <div>
-        Nazev:{{ selectedItems[activeItem].nazev }} <br>
-        Rozmer: {{ selectedItems[activeItem].rozmer }} <br>
-        Cena: {{ selectedItems[activeItem].cena }} <br>
-        Autor: {{ selectedItems[activeItem].autor }} <br>
+        <div class="itemDescrText">
+            Nazev:{{ selectedItems[activeItem].nazev }} <br>
+            Rozmer: {{ selectedItems[activeItem].rozmer }} <br>
+            Cena: {{ selectedItems[activeItem].cena }} <br>
+            Autor: {{ selectedItems[activeItem].autor }} <br>
+        </div>
 
-        <form action="" id="formular" class="login-form">
+        <form class="formular" action="" id="formular"
+            v-on:submit.prevent="submit">
 		
-            <div class="formular">
-                <h3>Poslat objednavku</h3>
+            <div >
+                <h4>Poslat objednavku</h4>
 
                 <label for="email">e-mail</label>
-                <input type="email" id="email" name="email">
+                <input v-model="email" type="text" id="email" name="email">
 
                 <label for="textarea">Zprava</label>
-                <textarea  id="textarea" name="textarea"></textarea>
+                <textarea class="textarea" v-model="text" id="textarea" name="textarea"></textarea>
 
-                <button type="submit" id="odeslat">Odeslat</button>
+                <button  type="submit" id="odeslat">Odeslat</button>
             </div>
 
 	    </form>
@@ -26,23 +29,39 @@
 
 <script>
 export default {
-    props: ['selectedItems', 'activeItem']
+    props: ['selectedItems', 'activeItem'],
+
+    data(){
+        return{
+            email: '',
+            text: ''
+        }
+    },
+    methods:{
+        submit: function(){
+            console.log(this.email, this.text )
+        }
+    }
 }
 </script>
 
 <style>
-.itemDescr{
-  width: 40%;
+
+.itemDescrText{
+  width: 80%;
   height: 80%;
-  border: 2px dashed black;
-  font-size: 150%;
-  background-color: gray;
-  color:white;
+  font-size: 100%;
+  color:black;
   margin: 20px;
 }
 .formular{
-    display: flex;
-    flex-direction: column;
-    padding: 5vW;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 90%;
+  width: 80%;
+}
+.textarea{
+  height: 80px;
+  width: 80%;
 }
 </style>

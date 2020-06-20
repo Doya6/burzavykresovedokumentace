@@ -1,9 +1,9 @@
 <template>
     <div class="section-top">
-        <img Class="logo" src="../../public/pics/logo.jpg">
-        <div Class="title"> <router-link to="../components/Home"> BURZA VÝKRESOVÉ DOKUMENTACE </router-link></div>
+        <img class="logo" src="../../public/pics/logo.jpg">
+        <!--<div class="title"> <router-link to="../components/Home"> BURZA VÝKRESOVÉ DOKUMENTACE </router-link></div>
                 
-        <!--<div class="top-section-buttos">
+        <div class="top-section-buttos">
             
             <button class="top-section-button">DESIGN
                 <p class="cost-symbol"> $ $ $ </p>
@@ -16,7 +16,7 @@
             </button>
             <button class="top-section-button">All</button>
         </div>-->
-        
+        <div class="title"> BURZA VÝKRESOVÉ DOKUMENTACE </div>
         <div class="lang-currency-selector">
             <div class="langSelector">
                 <div class="langCZ" v-on:click="switchCZ" v-bind:class='czColor' id="cz">
@@ -108,9 +108,6 @@ export default {
     margin: 10px;
     flex: 0 1 60%;
     font-size: 2vw;
-    
-}
-.title a {
     color: gray;
     text-decoration: none;
     text-shadow:white 1px 1px;

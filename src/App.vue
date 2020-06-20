@@ -5,9 +5,9 @@
 </template>
 <script>
 export default {
-    mounted() {
+    /*mounted() {
         this.$router.push('../components/home');
-    }
+    }*/
 }
 </script>
 
