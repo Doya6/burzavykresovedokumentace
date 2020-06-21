@@ -37,8 +37,6 @@ export default {
     calculatedPrice(){
       console.log("rates",this.rates, "activecurr",this.activeCurrency);
       return (this.selectedItems[this.activeItem].cena * this.rates[this.activeCurrency]).toFixed(2);
-
-      
     }
   },
 

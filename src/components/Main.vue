@@ -110,9 +110,6 @@ export default {
           this.rates.usd = data.rates.USD;
           this.rates.eur = 1;
           this.rates.czk = data.rates.CZK;
-          console.log(this.rates.usd);
-          console.log(this.rates.eur);
-          console.log(this.rates.czk);
         });
     }
   }
@@ -133,7 +130,7 @@ body {
 }
 .container {
   display: flex;
-  height: calc(100vh - 180px);
+  height: calc(102vh - 180px);
 }
 .containerBackground {
   background-image: url("../assets/ContainerBackgroundImg.jpg");
@@ -166,5 +163,10 @@ body {
 .itemDescr {
   flex: 1 1 40%;
   margin: 30px;
+}
+.sectionBottom{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
 </style>

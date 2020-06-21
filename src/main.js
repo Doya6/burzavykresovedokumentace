@@ -16,6 +16,9 @@ const messages = {
       poslatZpravu: 'Send a message',
       zprava: 'message',
       odeslat: 'send'
+    },
+    sectionBottom:{
+      sample: 'drawing sample'
     }
   },
   cs: {
@@ -27,8 +30,13 @@ const messages = {
       poslatZpravu: 'Poslat zprávu',
       zprava: 'zpráva',
       odeslat: 'odeslat'
+    },
+    sectionBottom:{
+      sample: 'ukázka výkresové dokumentace'
+    
     }
-  }
+  },
+  
 }
 const i18n = new VueI18n({
   locale: 'cs', // set locale

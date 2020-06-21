@@ -7,7 +7,7 @@
                 v-bind:key="index"
                 v-on:mouseover="mouseover(index)"
                 v-on:mouseleave="mouseleave"
-                v-on:click="selectCategory(category.nazev, undefined)">
+                v-on:click="selectCategory(category.nazev, undefined, index)">
                 {{ category.nazev }}
 
                 <ul class="subcategory-list-items" 
@@ -15,7 +15,7 @@
                     <li class="subcategory-li"
                         v-for="(subcat, index2) in category.subcategory"
                         v-bind:key="index2" 
-                        v-on:click="selectCategory(category.nazev, subcat.nazev)">                  
+                        v-on:click="selectCategory(category.nazev, subcat.nazev, index)">                  
                         {{ subcat.nazev }}
                     </li>
                 </ul>
@@ -32,9 +32,9 @@ import Categories from '../assets/data/categories.js';
 export default {
     data(){
         return {
-      categories: Categories,
-      isOpen: '',
-      selectedCategoryMarked: ''
+        categories: Categories,
+        isOpen: '',
+        selectedCategoryMarked: ''
         }
     },
   methods: {

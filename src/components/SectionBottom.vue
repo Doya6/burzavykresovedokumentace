@@ -1,6 +1,7 @@
 <template>
-    <div>
-        <a href="./pics/sample.pdf" target="_blank">sample</a>
+    <div class="footer">
+        <a class="icon" href="./pics/sample.pdf" target="_blank"> <img src="/pics/pdf.ico" type="icon" alt=""> </a>
+        <a href="./pics/sample.pdf" target="_blank">{{ $t("sectionBottom.sample") }}</a>
     </div>
 </template>
 
@@ -11,11 +12,27 @@ export default {
 </script>
 
 <style>
+:root {
+    --background-Blue: hsl(253, 90%, 62%);
+}
 .sectionBottom{
   width: 100%;
   height: 60px;
-  margin-top: 5px;
-  border: 1px dashed black;
+  background-color: var(--background-Blue);
   box-sizing: border-box;
+  color: white;
+}
+a{
+  color: white;
+  text-decoration: none;
+  margin-right: 5%;
+
+}
+img{
+    width: 30px;
+    margin: 10px;
+}
+.icon{
+    margin: 0;
 }
 </style>

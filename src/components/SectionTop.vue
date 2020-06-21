@@ -2,31 +2,16 @@
     <div class="section-top">
         <img class="logo" src="../../public/pics/logo.jpg">
 
-        <!--<div class="title"> <router-link to="../components/Home"> BURZA VÝKRESOVÉ DOKUMENTACE </router-link></div>
-                
-        <div class="top-section-buttos">
-            
-            <button class="top-section-button">DESIGN
-                <p class="cost-symbol"> $ $ $ </p>
-            </button>
-            <button class="top-section-button">STANDARD
-                <p class="cost-symbol"> $ $ </p>
-            </button>
-            <button class="top-section-button">DIY
-                <p class="cost-symbol"> $ </p>
-            </button>
-            <button class="top-section-button">All</button>
-        </div>-->
-
         <div class="title"> BURZA VÝKRESOVÉ DOKUMENTACE </div>
+
         <div class="lang-currency-selector">
             <div class="langSelector">
-                <div class="langCZ" 
+                <div class="langCZ" v-bind:class="this.$i18n.locale === 'cs' && 'red'" 
                  v-on:click="switchCZ"
                  id="cz">
                     <p>CZ</p>
                 </div>
-                <div class="langEN"
+                <div class="langEN" v-bind:class="this.$i18n.locale === 'en' && 'red'"
                  v-on:click="switchEN"
                  id="en">
                     <p>EN</p>
@@ -51,11 +36,9 @@ export default {
 
     methods: {
 		switchEN() {
- 
             this.$i18n.locale = "en";
 		},
 		switchCZ() {
-
             this.$i18n.locale = "cs";
         },
         switchCurrency(curr) {  
@@ -90,35 +73,6 @@ export default {
     text-decoration: none;
     
 }
-.top-section-buttos{
-    display: flex;
-    justify-content: space-around;
-    flex: 0 1 30%;
-    height: 35px;
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: gray 3px 3px;
-}
-.top-section-button{  
-    position: relative;
-    margin: 5px 2px;
-    color: white;
-    background-color: silver;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-.top-section-buttons, button:last-child{
-    margin-left: 3em;
-    background-color:var(--background-Losos);
-}
-.cost-symbol{
-    position: absolute;
-    top: -15px;
-    right: 5px;
-    font-size: 80%;
-    color: rgb(117, 117, 117);
-}
 .lang-currency-selector{
     display: flex;
     flex: 0 0 20%;
@@ -131,18 +85,17 @@ export default {
     flex: 0 1 80%;
     height: 60px;
     margin-right: 2vw;
+    color: white;
 }
 .langCZ{
     padding-right: 5px;
     border-right: 1px solid white;
     align-items: flex-start;
-    color: #E60200;
     cursor: pointer;
 }
 .langEN{
     padding-left: 5px;
     align-items: flex-end;
-    color: white;
     cursor: pointer;
 }
 .currency-selector{

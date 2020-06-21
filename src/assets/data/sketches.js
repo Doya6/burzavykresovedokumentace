@@ -10,7 +10,7 @@ export default [
     kategorie: 'jídelna',
     podKategorie: 'židle',
     cenovaKategorie: 'STD',
-    cena: 150
+    cena: 5
     },
 	{
     id: 'KSS-00002',
@@ -23,7 +23,7 @@ export default [
     kategorie: 'jídelna',
     podKategorie: 'stoly',
     cenovaKategorie: 'STD',
-    cena: 150
+    cena: 5
     },
 	{
     id: 'KSS-00003',
@@ -36,7 +36,7 @@ export default [
     kategorie: 'koupelna',
     podKategorie: 'skříňky',
     cenovaKategorie: 'STD',
-    cena: 150
+    cena: 5
     },
 	{
     id: 'SSS-00004',
@@ -49,7 +49,7 @@ export default [
     kategorie: 'šatna',
     podKategorie: 'skříně',
     cenovaKategorie: 'STD',
-    cena: 150
+    cena: 5
     },
 	{
     id: 'SSS-00005',
@@ -62,7 +62,7 @@ export default [
     kategorie: 'obývací pokoj',
     podKategorie: 'stoly',
     cenovaKategorie: 'DES',
-    cena: 450
+    cena: 4
     },
 	{
     id: 'SSS-00006',
@@ -75,7 +75,7 @@ export default [
     kategorie: 'zahrada',
     podKategorie: 'lavičky',
     cenovaKategorie: 'DIY',
-    cena: 100
+    cena: 6
     },
 	{
     id: 'DPS-00007',
@@ -88,7 +88,7 @@ export default [
     kategorie: 'dětský pokoj',
     podKategorie: 'postele',
     cenovaKategorie: 'std',
-    cena: 150
+    cena: 6
     },
 	{
     id: 'KSS-00008',
@@ -101,7 +101,7 @@ export default [
     kategorie: 'kancelář',
     podKategorie: 'sety',
     cenovaKategorie: 'DES',
-    cena: 450
+    cena: 8
     },
 	{
     id: 'SSS-00009',
@@ -114,7 +114,7 @@ export default [
     kategorie: 'obývací pokoj',
     podKategorie: 'stoly',
     cenovaKategorie: 'DES',
-    cena: 4500
+    cena: 7
     },
     {
     id: 'SSS-00010',
@@ -127,6 +127,6 @@ export default [
     kategorie: 'obývací pokoj',
     podKategorie: 'stoly',
     cenovaKategorie: 'DES',
-    cena: 4500
+    cena: 5
     }
 ]
