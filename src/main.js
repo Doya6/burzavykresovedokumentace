@@ -8,18 +8,30 @@ Vue.config.productionTip = false
 
 const messages = {
   en: {
-    message: {
-      hello: 'hello'
+    ItemDescription: {
+      nazev: 'Name:',
+      rozmer: 'Size:',
+      cena: 'Price:',
+      autor: 'Author:',
+      poslatZpravu: 'Send a message',
+      zprava: 'message',
+      odeslat: 'send'
     }
   },
   cs: {
-    message: {
-      hello: 'ahoj'
+    ItemDescription: {
+      nazev: 'Název:',
+      rozmer: 'Rozměr:',
+      cena: 'Cena:',
+      autor: 'Autor:',
+      poslatZpravu: 'Poslat zprávu',
+      zprava: 'zpráva',
+      odeslat: 'odeslat'
     }
   }
 }
 const i18n = new VueI18n({
-  locale: 'en', // set locale
+  locale: 'cs', // set locale
   messages, // set locale messages
 })
 

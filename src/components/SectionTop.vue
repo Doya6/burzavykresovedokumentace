@@ -1,6 +1,7 @@
 <template>
     <div class="section-top">
         <img class="logo" src="../../public/pics/logo.jpg">
+
         <!--<div class="title"> <router-link to="../components/Home"> BURZA VÝKRESOVÉ DOKUMENTACE </router-link></div>
                 
         <div class="top-section-buttos">
@@ -16,25 +17,27 @@
             </button>
             <button class="top-section-button">All</button>
         </div>-->
+
         <div class="title"> BURZA VÝKRESOVÉ DOKUMENTACE </div>
         <div class="lang-currency-selector">
             <div class="langSelector">
                 <div class="langCZ" 
                  v-on:click="switchCZ"
-                 v-bind:class='czColor' id="cz">
+                 id="cz">
                     <p>CZ</p>
                 </div>
                 <div class="langEN"
                  v-on:click="switchEN"
-                 v-bind:class='enColor' id="en">
+                 id="en">
                     <p>EN</p>
                 </div>
             </div>    
             
             <div class="currency-selector">    
-                <div v-on:click="switchCurrency('czk')" v-bind:class='colorCZK'>CZK</div>
-                <div v-on:click="switchCurrency('eur')" v-bind:class='colorEUR'>EUR</div>
-                <div v-on:click="switchCurrency('usd')" v-bind:class='colorUSD'>USD</div>
+                <div v-on:click="switchCurrency('czk')" v-bind:class="activeCurrency === 'czk' && 'red'">CZK</div>
+                <div v-on:click="switchCurrency('eur')" v-bind:class="activeCurrency === 'eur' && 'red'">EUR</div>
+                <div v-on:click="switchCurrency('usd')" v-bind:class="activeCurrency === 'usd' && 'red'">USD</div>
+
             </div>
         </div>
 
@@ -42,45 +45,21 @@
 </template>
 
 <script>
-export default {    
-    data() {
-        return {
-            czColor: 'red',
-            enColor: 'white',
-            currency: 'czk',
-            colorCZK: 'red',
-            colorEUR: 'white',
-            colorUSD: 'white',
-        }
-    },
+export default {  
+    
+    props:['activeCurrency'],
+
     methods: {
 		switchEN() {
-            this.enColor = 'red';
-            this.czColor = 'white';
+ 
             this.$i18n.locale = "en";
 		},
 		switchCZ() {
-            this.czColor = 'red';
-            this.enColor = 'white';
+
             this.$i18n.locale = "cs";
         },
-        switchCurrency(curr) {
-            if (curr === 'czk'){
-                this.currency = 'czk'
-                this.colorCZK = 'red'
-                this.colorEUR = 'white'
-                this.colorUSD = 'white'
-            } else if (curr === 'eur'){
-                this.currency = 'eur'
-                this.colorCZK = 'white'
-                this.colorEUR = 'red'
-                this.colorUSD = 'white'
-            } else if (curr === 'usd'){
-                this.currency = 'usd'
-                this.colorCZK = 'white'
-                this.colorEUR = 'white'
-                this.colorUSD = 'red'
-            }
+        switchCurrency(curr) {  
+            this.$emit('selectCurrency', curr);
         }
     }
 }
@@ -88,7 +67,7 @@ export default {
 
 <style>
 :root {
-    --background-Losos: rgb(108, 70, 245);
+    --background-Blue: rgb(108, 70, 245);
 }
 .section-top{
     width: 100%;
@@ -96,7 +75,7 @@ export default {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: var(--background-Losos);
+    background-color: var(--background-Blue);
 } 
 .logo{
     margin: 10px;

@@ -1,26 +1,28 @@
 <template>
-    <div class="category-list">
-<ul > 
-            <li v-bind:class="selectedCategoryMarked === index && 'ramecek'"
+    <div >
+        <ul class="category-list"> 
+            <li class="category-list-li"
+                v-bind:class="selectedCategoryMarked === index && 'ramecek'"
                 v-for="(category, index) in categories"
                 v-bind:key="index"
                 v-on:mouseover="mouseover(index)"
-                v-on:mouseleave="mouseleave">
+                v-on:mouseleave="mouseleave"
+                v-on:click="selectCategory(category.nazev, undefined)">
                 {{ category.nazev }}
 
                 <ul class="subcategory-list-items" 
                     v-if="isOpen === index">
-                    <li 
+                    <li class="subcategory-li"
                         v-for="(subcat, index2) in category.subcategory"
                         v-bind:key="index2" 
-                        v-on:click="selectCategory(category.nazev, subcat.nazev, index )">                  
+                        v-on:click="selectCategory(category.nazev, subcat.nazev)">                  
                         {{ subcat.nazev }}
                     </li>
                 </ul>
 
             </li>
         </ul>
-</div>
+    </div>
 </template>
 
 <script>
@@ -33,8 +35,8 @@ export default {
       categories: Categories,
       isOpen: '',
       selectedCategoryMarked: ''
-    }
-  },
+        }
+    },
   methods: {
         mouseover: function (index) {
             this.isOpen = index;
@@ -54,42 +56,43 @@ export default {
 <style>
 .category-list{
   width: 100%;
-  height: 60px;
   display: flex;
+  justify-content: space-around;
   align-items: center;
   background-color: rgb(228, 228, 228);
-}
-.category-list-arrows{
-    width: 30px;
-    height: 30px;
-    margin: 5px;
-    cursor: pointer;
+  margin: 0;
 }
 .category-list ul{
     display: flex;
     justify-content: space-around;
+    align-items: center;
     flex: 1 1 90%;
     list-style-type: none;
 }
-.category-list li{
+.category-list-li{
+    display: flex;
+    align-items: center;
     cursor: pointer;
-    padding: 5px;
+    height: 50px;
+    padding: 0 10px 0 10px;
 }
 .subcategory-list-items{
     position: absolute;
+    top: 100px;
+    transform: translateX(-10px);
     display: none;
     flex-direction: column;    
     padding: 0;
     background-color: lightgrey; 
     z-index: 1;
 }
-.subcategory-list-items li{
+.subcategory-li{
     padding: 5px;
     text-decoration: none;
     cursor: pointer;
 }
 .ramecek{
-  border: 1px solid black;
+  background-color: gray;
 }
 
 </style>

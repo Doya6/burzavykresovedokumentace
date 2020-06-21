@@ -1,6 +1,6 @@
 <template>
     <div>
-        Footer
+        <a href="./pics/sample.pdf" target="_blank">sample</a>
     </div>
 </template>
 

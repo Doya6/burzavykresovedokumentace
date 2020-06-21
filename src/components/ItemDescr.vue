@@ -1,28 +1,27 @@
 <template>
   <div>
     <div class="itemDescrText">
-      Nazev:{{ selectedItems[activeItem].nazev }}
+      {{ $t("ItemDescription.nazev") }} {{ selectedItems[activeItem].nazev }}
       <br />
-      Rozmer: {{ selectedItems[activeItem].rozmer }}
+      {{ $t("ItemDescription.rozmer") }} {{ selectedItems[activeItem].rozmer }}
       <br />
-      Cena: {{ selectedItems[activeItem].cena }}
+      {{ $t("ItemDescription.cena") }} {{ calculatedPrice }} <span class="toUpperCase" > {{activeCurrency}} </span>
       <br />
-      Autor: {{ selectedItems[activeItem].autor }}
+      {{ $t("ItemDescription.autor") }} {{ selectedItems[activeItem].autor }}
       <br />
-      {{ $t("message.hello") }}
     </div>
 
     <form class="formular" action id="formular" v-on:submit.prevent="submit">
       <div>
-        <h4>Poslat objednavku</h4>
+        <h4>{{ $t("ItemDescription.poslatZpravu") }}</h4>
 
         <label for="email">e-mail</label>
         <input v-model="email" type="text" id="email" name="email" />
 
-        <label for="textarea">Zprava</label>
+        <label for="textarea">{{ $t("ItemDescription.zprava") }}</label>
         <textarea class="textarea" v-model="text" id="textarea" name="textarea"></textarea>
 
-        <button type="submit" id="odeslat">Odeslat</button>
+        <button type="submit" id="odeslat">{{ $t("ItemDescription.odeslat") }}</button>
       </div>
     </form>
   </div>
@@ -32,12 +31,22 @@
 import axios from "axios";
 
 export default {
-  props: ["selectedItems", "activeItem"],
+  props: ["selectedItems", "activeItem", "activeCurrency", "rates"],
+
+  computed:{
+    calculatedPrice(){
+      console.log("rates",this.rates, "activecurr",this.activeCurrency);
+      return (this.selectedItems[this.activeItem].cena * this.rates[this.activeCurrency]).toFixed(2);
+
+      
+    }
+  },
 
   data() {
     return {
       email: "",
       text: ""
+      
     };
   },
   methods: {
@@ -97,5 +106,8 @@ export default {
 .textarea {
   height: 80px;
   width: 80%;
+}
+.toUpperCase{
+  text-transform: uppercase;
 }
 </style>
