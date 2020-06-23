@@ -20,9 +20,6 @@
         v-on:backgroundCleaner="backgroundCleaner"
       />
 
-      <div  >
-
-      </div>
 
       <div class="itemDetail" v-if="itemsDetailShow">
         <itemPics  v-bind:selectedItemPictures="selectedItemPictures" />
@@ -138,7 +135,7 @@ body {
 }
 .container {
   display: flex;
-  height: calc(102vh - 180px);
+  height: calc(100vh - 180px);
 }
 .containerPics{
   display: flex;
