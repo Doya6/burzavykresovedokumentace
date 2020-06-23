@@ -1,5 +1,6 @@
 <template>
   <div>
+    
     <div class="itemDescrText">
       {{ $t("ItemDescription.nazev") }} {{ selectedItems[activeItem].nazev }}
       <br />
@@ -12,17 +13,17 @@
     </div>
 
     <form class="formular" action id="formular" v-on:submit.prevent="submit">
-      <div>
-        <h4>{{ $t("ItemDescription.poslatZpravu") }}</h4>
+      
+      <h4>{{ $t("ItemDescription.poslatZpravu") }}</h4>
 
-        <label for="email">e-mail</label>
-        <input v-model="email" type="text" id="email" name="email" />
+      <label for="email">e-mail</label>
+      <input v-model="email" type="text" id="email" name="email" />
 
-        <label for="textarea">{{ $t("ItemDescription.zprava") }}</label>
-        <textarea class="textarea" v-model="text" id="textarea" name="textarea"></textarea>
+      <label for="textarea">{{ $t("ItemDescription.zprava") }}</label>
+      <textarea class="textarea" v-model="text" id="textarea" name="textarea"></textarea>
 
-        <button type="submit" id="odeslat">{{ $t("ItemDescription.odeslat") }}</button>
-      </div>
+      <button type="submit" id="odeslat">{{ $t("ItemDescription.odeslat") }}</button>
+      
     </form>
   </div>
 </template>
@@ -88,23 +89,43 @@ export default {
 </script>
 
 <style>
+
 .itemDescrText {
-  width: 80%;
+  width: 100%;
   height: 80%;
   font-size: 100%;
   color: black;
 }
+
 .formular {
   display: flex;
   flex-direction: column;
   flex: 1 1 90%;
-  width: 80%;
+  width: 100%;
+}
+h4{
+  margin-bottom: 0;
+}
+label{
+  margin: 10px;
+}
+input{
+  width: 100%;
 }
 .textarea {
-  height: 80px;
-  width: 80%;
+  height: 150px;
+  width: 100%;
 }
 .toUpperCase{
   text-transform: uppercase;
+}
+button{
+  width: 80px;
+  height: 30px;
+  margin: 10px;
+  align-self: flex-end;
+  border-radius: 5px;
+  color: white;
+  background-color: rgb(108, 70, 245);
 }
 </style>

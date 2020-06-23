@@ -13,7 +13,7 @@ const messages = {
       rozmer: 'Size:',
       cena: 'Price:',
       autor: 'Author:',
-      poslatZpravu: 'Send a message',
+      poslatZpravu: 'Send a message to the author',
       zprava: 'message',
       odeslat: 'send'
     },
@@ -30,7 +30,7 @@ const messages = {
       rozmer: 'Rozměr:',
       cena: 'Cena:',
       autor: 'Autor:',
-      poslatZpravu: 'Poslat zprávu',
+      poslatZpravu: 'Kontaktovat autora',
       zprava: 'zpráva',
       odeslat: 'odeslat'
     },

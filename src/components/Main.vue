@@ -9,7 +9,8 @@
 
     <categoryList class="category-list"
      v-on:selectCategory="selectCategory"
-     v-on:selectSubCategory="selectSubCategory" />
+     v-on:selectSubCategory="selectSubCategory"
+    />
 
     <div class="container" v-bind:class="{'containerBackground': containerBackgroundShow}">
       <itemsList
@@ -20,9 +21,9 @@
         v-on:backgroundCleaner="backgroundCleaner"
       />
 
-
       <div class="itemDetail" v-if="itemsDetailShow">
-        <itemPics  v-bind:selectedItemPictures="selectedItemPictures" />
+        <itemPics  v-bind:selectedItemPictures="selectedItemPictures"
+        />
 
         <itemDescr
           class="itemDescr"
@@ -166,7 +167,7 @@ body {
 .itemDetail {
   display: flex;
   align-items: center;
-  flex: 1 1 80%;
+  flex: 1 1 100%;
   height: 100%;
   padding: 30px;
 }
