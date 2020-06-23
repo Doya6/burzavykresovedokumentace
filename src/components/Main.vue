@@ -7,7 +7,9 @@
       v-bind:activeCurrency="activeCurrency"
     />
 
-    <categoryList class="category-list" v-on:selectCategory="selectCategory" />
+    <categoryList class="category-list"
+     v-on:selectCategory="selectCategory"
+     v-on:selectSubCategory="selectSubCategory" />
 
     <div class="container" v-bind:class="{'containerBackground': containerBackgroundShow}">
       <itemsList
@@ -18,8 +20,12 @@
         v-on:backgroundCleaner="backgroundCleaner"
       />
 
+      <div  >
+
+      </div>
+
       <div class="itemDetail" v-if="itemsDetailShow">
-        <itemPics class="itemPics" v-bind:selectedItemPictures="selectedItemPictures" />
+        <itemPics  v-bind:selectedItemPictures="selectedItemPictures" />
 
         <itemDescr
           class="itemDescr"
@@ -65,6 +71,7 @@ export default {
       itemsListShow: false,
       itemsDetailShow: false,
       selectedItems: "",
+      selectedSubItems: "",
       selectedItemPictures: "",
       containerBackgroundShow: true,
       API_BASE: `http://data.fixer.io/api/latest?access_key=47fc7268b9f65797cca31e8d4deaf4d8`,
@@ -78,25 +85,26 @@ export default {
       this.selectedItemPictures = obrazek;
       this.itemsDetailShow = true;
     },
-    selectCategory: function(cat, subCat) {
+
+    selectCategory: function(cat) {
       let selectedItems = undefined;
-      if (subCat === undefined) {
-        selectedItems = this.sketches.filter(
+          this.selectedItems = this.sketches.filter(
           sketch => sketch.kategorie == cat
         );
-      } else {
-        selectedItems = this.sketches.filter(
-          sketch => sketch.kategorie == cat && sketch.podKategorie == subCat
-        );
-      }
-
-      this.selectedItems = selectedItems;
-      if (this.selectedItems == "") {
-        window.alert("Tato kategorie je prázdná.");
-      }
       this.itemsListShow = true;
       this.itemsDetailShow = false;
     },
+    selectSubCategory: function(cat, subCat) {
+      let selectedItems = undefined;
+      this.selectedItems = this.sketches.filter(
+          sketch => sketch.kategorie == cat && sketch.podKategorie == subCat
+        );
+      if (this.selectedItems == "") {
+        window.alert("Tato kategorie je prázdná.");
+
+      }       
+    },
+
     backgroundCleaner: function() {
       this.containerBackgroundShow = false;
     },
@@ -132,8 +140,16 @@ body {
   display: flex;
   height: calc(102vh - 180px);
 }
+.containerPics{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .containerBackground {
   background-image: url("../assets/ContainerBackgroundImg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+ 
 }
 .category-list {
   width: 100%;

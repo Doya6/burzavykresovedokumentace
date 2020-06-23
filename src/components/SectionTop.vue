@@ -1,8 +1,8 @@
 <template>
     <div class="section-top">
-        <img class="logo" src="../../public/pics/logo.jpg">
+        <img class="logo" src="../../public/pics/logo.png">
 
-        <div class="title"> BURZA VÝKRESOVÉ DOKUMENTACE </div>
+        <div class="title"> {{ $t("sectionTop.title") }} </div>
 
         <div class="lang-currency-selector">
             <div class="langSelector">
@@ -61,9 +61,9 @@ export default {
     background-color: var(--background-Blue);
 } 
 .logo{
-    margin: 10px;
+    margin-left: 20px;
     flex: 0 1 5%;
-    height: 50px;
+    width: 70px;
 }
 .title{
     margin: 10px;
@@ -71,7 +71,6 @@ export default {
     font-size: 2vw;
     color: white;
     text-decoration: none;
-    
 }
 .lang-currency-selector{
     display: flex;
@@ -110,7 +109,7 @@ export default {
 }
 .red{
     cursor: pointer;
-    color: red;
+    color: rgb(255, 56, 56);
     }
 .white{
     cursor: pointer;

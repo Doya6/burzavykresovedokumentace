@@ -1,11 +1,11 @@
 <template>
   <div class="itemPics" v-on:keyup="previousPicKey">
     <img
-    v-show="leftArrowShow"
-    class="category-list-arrows"
-    id="arrow_left"
-    src="../assets/triangle-left.png"
-    v-on:click="previousPic()"
+      v-if="arrowShow"
+      class="category-list-arrows"
+      id="arrow_left"
+      v-bind:src="require(`../assets/${leftArrow}.png`)"
+      v-on:click="previousPic()"
     />
 
     <div class="category-list-items">
@@ -16,10 +16,10 @@
     </div>
 
     <img
-      v-show="rightArrowShow"
+      v-if="arrowShow"
       class="category-list-arrows"
       id="arrow_right"
-      src="../assets/triangle-right.png"
+      v-bind:src="require(`../assets/${rightArrow}.png`)"
       v-on:click="nextPic()"
     />
   </div>
@@ -29,28 +29,41 @@
 export default {
   props: ["selectedItemPictures"],
   created() {
-    window.addEventListener("keyup", e => this.previousPicKey(e));
-    this.picturesArrowsHandler();
+    window.addEventListener("keyup", e => this.previousPicKey(e)); 
+  },
+  computed:{
+    arrowShow(){
+      if (this.selectedItemPictures.length <= 1){ 
+      return false;     
+    };
+      return true;
+    },
+    leftArrow(){
+      if(this.picIndex === 0){
+        return 'inactiveLeft';
+      } else return 'ginactiveLeft' ;
+    },
+    rightArrow(){
+      if(this.picIndex === this.selectedItemPictures.length -1 ){
+        return 'inactiveRight';
+      } else return 'ginactiveRight';
+    },
   },
   data() {
     return {
       picIndex: 0,
-      leftArrowShow: undefined,
-      rightArrowShow: undefined
     };
   },
   methods: {
     previousPic() {
       if (this.picIndex !== 0) {
-        this.picIndex--;
+        this.picIndex --;
       }
-      this.picturesArrowsHandler();
     },
     nextPic() {
       if (this.picIndex < this.selectedItemPictures.length - 1) {
-        this.picIndex++;
+        this.picIndex ++;
       }
-      this.picturesArrowsHandler();
     },
     previousPicKey(e) {
       if (e.keyCode === 37) {
@@ -59,21 +72,7 @@ export default {
         this.nextPic();
       }
     },
-    picturesArrowsHandler(){
-      if(this.selectedItemPictures.length <= 1){
-        this.leftArrowShow = false;
-        this.rightArrowShow = false;
-      } else if(this.picIndex === 0 && this.selectedItemPictures.length > 1){
-        this.leftArrowShow = false;
-        this.rightArrowShow = true;
-      } else if(this.picIndex + 1 === this.selectedItemPictures.length && this.selectedItemPictures.length > 1){
-        this.leftArrowShow = true;
-        this.rightArrowShow = false;
-      } else {
-        this.leftArrowShow = true;
-        this.rightArrowShow = true;
-      }
-    },
+    
   }
 };
 </script>
@@ -90,7 +89,8 @@ export default {
 }
 .item-list-main-pic {
   align-items: center;
-  width: 90%;
+  width: 100%;
+  margin: 0;
 }
 .category-list-arrows {
   width: 30px;

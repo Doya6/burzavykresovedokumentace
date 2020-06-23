@@ -19,6 +19,9 @@ const messages = {
     },
     sectionBottom:{
       sample: 'drawing sample'
+    },
+    sectionTop:{
+      title: 'Drawing Documentation Marketplace'
     }
   },
   cs: {
@@ -33,7 +36,9 @@ const messages = {
     },
     sectionBottom:{
       sample: 'ukázka výkresové dokumentace'
-    
+    },
+    sectionTop:{
+      title: 'Burza výkresové dokumentace'
     }
   },
   

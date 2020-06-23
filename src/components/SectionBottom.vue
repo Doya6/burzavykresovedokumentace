@@ -13,7 +13,7 @@ export default {
 
 <style>
 :root {
-    --background-Blue: hsl(253, 90%, 62%);
+    --background-Blue:  rgb(108, 70, 245);
 }
 .sectionBottom{
   width: 100%;
