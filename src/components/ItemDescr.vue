@@ -1,23 +1,30 @@
 <template>
   <div>
-    
-    <div class="itemDescrText">
-      {{ $t("ItemDescription.nazev") }} {{ selectedItems[activeItem].nazev }}
-      <br />
-      {{ $t("ItemDescription.rozmer") }} {{ selectedItems[activeItem].rozmer }}
-      <br />
-      {{ $t("ItemDescription.cena") }} {{ calculatedPrice }} <span class="toUpperCase" > {{activeCurrency}} </span>
-      <br />
-      {{ $t("ItemDescription.autor") }} {{ selectedItems[activeItem].autor }}
-      <br />
-    </div>
+     
+  <h4>{{ selectedItems[activeItem].nazev }}</h4>  
+	<p class="popisPolozky">Lorem ipsum dolor sit amet, id sed novum luptatum iracundia.</p>		
+	<table class="itemDescrText">
+  	<tr>
+  		<td>{{ $t("ItemDescription.rozmer") }}</td>
+  		<td>{{ selectedItems[activeItem].rozmer }}</td>
+    </tr>
+		<tr>
+    	<td>{{ $t("ItemDescription.cena") }}</td>
+    	<td>{{ calculatedPrice }}<span class="toUpperCase">{{activeCurrency}}</span></td>
+  	</tr>
+		<tr>
+    	<td> {{ $t("ItemDescription.autor") }}</td>
+    	<td>{{ selectedItems[activeItem].autor }}</td>
+  	</tr>
+  </table>
+
 
     <form class="formular" action id="formular" v-on:submit.prevent="submit">
       
       <h4>{{ $t("ItemDescription.poslatZpravu") }}</h4>
 
       <label for="email">e-mail</label>
-      <input v-model="email" type="text" id="email" name="email" />
+      <input v-model="email" type="email" id="email" name="email" />
 
       <label for="textarea">{{ $t("ItemDescription.zprava") }}</label>
       <textarea class="textarea" v-model="text" id="textarea" name="textarea"></textarea>
@@ -92,9 +99,9 @@ export default {
 
 .itemDescrText {
   width: 100%;
-  height: 80%;
-  font-size: 100%;
-  color: black;
+  max-width: 300px;
+  min-width: 100px;
+  margin: 0 0 15px 0;
 }
 
 .formular {
@@ -104,10 +111,13 @@ export default {
   width: 100%;
 }
 h4{
-  margin-bottom: 0;
+  margin: 0 0 5px 0;
+}
+.popisPolozky{
+  margin: 0 5px 15px 0;
 }
 label{
-  margin: 10px;
+  margin: 0px 0px 3px 10px;
 }
 input{
   width: 100%;
@@ -120,12 +130,19 @@ input{
   text-transform: uppercase;
 }
 button{
-  width: 80px;
-  height: 30px;
-  margin: 10px;
+  width: 60px;
+  height: 25px;
+  margin: 5px;
   align-self: flex-end;
   border-radius: 5px;
-  color: white;
-  background-color: rgb(108, 70, 245);
+  font-size: 12px;
+background-color: rgb(108, 70, 245);
+}
+td:nth-child(2){
+  text-align: right;
+  font-weight: 300;
+}
+td:nth-child(1){
+  font-weight: 100;
 }
 </style>

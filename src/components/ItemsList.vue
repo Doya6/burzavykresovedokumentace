@@ -13,7 +13,7 @@
         v-on:click="selectItem(index)"
       />
 
-      {{ item.popis }}
+      <div class="item-list-main-name">{{ item.popis }}</div>
     </div>
   </div>
 </template>
@@ -36,15 +36,14 @@ export default {
 </script>
 
 <style scoped>
-.itemList {
- 
- 
-}
+
 .item-list-main-name {
   align-self: flex-start;
+  margin-left: 20px;
+  font-size: 1.5vw;
 }
 .item-list-main-pic {
-  width: 80%;
+  width: 90%;
   cursor: pointer;
 }
 .ramecek{

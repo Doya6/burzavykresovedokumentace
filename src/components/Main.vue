@@ -1,5 +1,4 @@
 <template>
-  <!--Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>--->
   <div id="main">
     <sectionTop
       class="section-top"
@@ -160,23 +159,25 @@ body {
   align-items: center;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: start;
   flex: 0 0 20%;
   background-color: lightgray;
 }
 .itemDetail {
   display: flex;
   align-items: center;
-  flex: 1 1 100%;
-  height: 100%;
+  flex: 1 1 80%;
   padding: 30px;
 }
 .itemPics {
-  flex: 1 1 60%;
+  flex: 1 1 60%; 
 }
 .itemDescr {
-  flex: 1 1 40%;
-  margin: 30px;
+  display: flex;
+  flex-direction: column;
+  margin: 5vw;
+  width: 80%;
+  min-width: 180px;
 }
 .sectionBottom{
   display: flex;
