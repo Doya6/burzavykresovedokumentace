@@ -21,7 +21,7 @@
 <script>
 export default {
   props: ["selectedItems"],
-  data(){
+    data(){
     return{
       selectedItemMarked: undefined
     }
@@ -36,7 +36,11 @@ export default {
 </script>
 
 <style scoped>
-
+.itemList{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .item-list-main-name {
   align-self: flex-start;
   margin-left: 20px;

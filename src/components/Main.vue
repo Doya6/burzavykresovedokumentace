@@ -6,9 +6,10 @@
       v-bind:activeCurrency="activeCurrency"
     />
 
-    <categoryList class="category-list"
-     v-on:selectCategory="selectCategory"
-     v-on:selectSubCategory="selectSubCategory"
+    <categoryList
+      class="category-list"
+      v-on:selectCategory="selectCategory"
+      v-on:selectSubCategory="selectSubCategory"
     />
 
     <div class="container" v-bind:class="{'containerBackground': containerBackgroundShow}">
@@ -21,8 +22,7 @@
       />
 
       <div class="itemDetail" v-if="itemsDetailShow">
-        <itemPics  v-bind:selectedItemPictures="selectedItemPictures"
-        />
+        <itemPics v-bind:selectedItemPictures="selectedItemPictures" />
 
         <itemDescr
           class="itemDescr"
@@ -93,12 +93,14 @@ export default {
     },
     selectSubCategory: function(cat, subCat) {
       let selectedItems = undefined;
+      this.itemsDetailShow = false;
       this.selectedItems = this.sketches.filter(
           sketch => sketch.kategorie == cat && sketch.podKategorie == subCat
         );
       if (this.selectedItems == "") {
         window.alert("Tato kategorie je prázdná.");
-
+        this.itemsDetailShow = false;
+        this.containerBackgroundShow = true;
       }       
     },
 
@@ -121,23 +123,23 @@ export default {
 };
 </script>
 
-
 <style>
 body {
   margin: 0;
   padding: 0;
 }
 #main {
-  min-width: 600px;
   font-family: sans-serif;
   font-size: 100%;
   overflow: hidden;
 }
 .container {
   display: flex;
+  min-width: 500px;
+  min-height: 500px;
   height: calc(100vh - 180px);
 }
-.containerPics{
+.containerPics {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -146,7 +148,6 @@ body {
   background-image: url("../assets/ContainerBackgroundImg.jpg");
   background-repeat: no-repeat;
   background-size: cover;
- 
 }
 .category-list {
   width: 100%;
@@ -155,11 +156,11 @@ body {
   background-color: rgb(228, 228, 228);
 }
 .itemsList {
-  overflow: auto;
+  overflow-y: auto;
   align-items: center;
   display: flex;
   flex-direction: column;
-  justify-content: start;
+  justify-content: flex-start;
   flex: 0 0 20%;
   background-color: lightgray;
 }
@@ -168,9 +169,10 @@ body {
   align-items: center;
   flex: 1 1 80%;
   padding: 30px;
+  min-width: 590px;
 }
 .itemPics {
-  flex: 1 1 60%; 
+  flex: 1 1 60%;
 }
 .itemDescr {
   display: flex;
@@ -179,7 +181,7 @@ body {
   width: 80%;
   min-width: 180px;
 }
-.sectionBottom{
+.sectionBottom {
   display: flex;
   justify-content: flex-end;
   align-items: center;

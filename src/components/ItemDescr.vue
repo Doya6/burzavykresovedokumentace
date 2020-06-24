@@ -44,7 +44,7 @@ export default {
   computed:{
     calculatedPrice(){
       return (this.selectedItems[this.activeItem].cena * this.rates[this.activeCurrency]).toFixed(2);
-    }
+    },
   },
 
   data() {
@@ -123,7 +123,7 @@ input{
   width: 100%;
 }
 .textarea {
-  height: 150px;
+  height: 15vw;
   width: 100%;
 }
 .toUpperCase{
@@ -136,7 +136,8 @@ button{
   align-self: flex-end;
   border-radius: 5px;
   font-size: 12px;
-background-color: rgb(108, 70, 245);
+  color: white;
+  background-color: rgb(108, 70, 245);
 }
 td:nth-child(2){
   text-align: right;
