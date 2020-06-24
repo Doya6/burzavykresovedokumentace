@@ -6,11 +6,7 @@
       v-bind:activeCurrency="activeCurrency"
     />
 
-    <categoryList
-      class="category-list"
-      v-on:selectCategory="selectCategory"
-      v-on:selectSubCategory="selectSubCategory"
-    />
+    <categoryList class="category-list" v-on:selectCategory="selectCategory" />
 
     <div class="container" v-bind:class="{'containerBackground': containerBackgroundShow}">
       <itemsList
@@ -82,28 +78,28 @@ export default {
       this.selectedItemPictures = obrazek;
       this.itemsDetailShow = true;
     },
-
-    selectCategory: function(cat) {
+    selectCategory: function(cat, subCat) {
       let selectedItems = undefined;
-          this.selectedItems = this.sketches.filter(
+      this.itemsDetailShow = false;
+      if (subCat === undefined) {
+        this.selectedItems = this.sketches.filter(
           sketch => sketch.kategorie == cat
         );
-      this.itemsListShow = true;
-      this.itemsDetailShow = false;
-    },
-    selectSubCategory: function(cat, subCat) {
-      let selectedItems = undefined;
-      this.itemsDetailShow = false;
-      this.selectedItems = this.sketches.filter(
+        this.itemsListShow = true;
+        this.itemsDetailShow = false;
+      } else {
+        this.selectedItems = this.sketches.filter(
           sketch => sketch.kategorie == cat && sketch.podKategorie == subCat
         );
+        this.itemsListShow = true;
+      }
       if (this.selectedItems == "") {
         window.alert("Tato kategorie je prázdná.");
         this.itemsDetailShow = false;
+        this.itemsListShow = false;
         this.containerBackgroundShow = true;
-      }       
+      }
     },
-
     backgroundCleaner: function() {
       this.containerBackgroundShow = false;
     },
@@ -117,7 +113,8 @@ export default {
           this.rates.usd = data.rates.USD;
           this.rates.eur = 1;
           this.rates.czk = data.rates.CZK;
-        });
+        }
+      );
     }
   }
 };

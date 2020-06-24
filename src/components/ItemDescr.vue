@@ -128,6 +128,7 @@ input{
 }
 .toUpperCase{
   text-transform: uppercase;
+  margin-left: 5px;
 }
 button{
   width: 60px;

@@ -7,14 +7,14 @@
                 v-bind:key="index"
                 v-on:mouseover="mouseover(index)"
                 v-on:mouseleave="mouseleave">
-                <span v-on:click="selectCategory(category.nazev, index)">
+                <span v-on:click="selectCategory(category.nazev, undefined, index)">
                 {{ category.nazev }} </span>
                 <ul class="subcategory-list-items" 
                     v-if="isOpen === index">
                     <li class="subcategory-li"
                         v-for="(subcat, index2) in category.subcategory"
                         v-bind:key="index2" 
-                        v-on:click="selectSubCategory(category.nazev, subcat.nazev, index)">                  
+                        v-on:click="selectCategory(category.nazev, subcat.nazev, index)">                  
                         {{ subcat.nazev }}
                     </li>
                 </ul>
@@ -43,13 +43,8 @@ export default {
         mouseleave: function () {
             this.isOpen = "";
         },
-        selectCategory(catNazev, index ){
-            this.$emit('selectCategory', catNazev, index);
-            this.isOpen = false;
-            this.selectedCategoryMarked = index;
-        },
-        selectSubCategory(catNazev, subcatNazev, index ){
-            this.$emit('selectSubCategory', catNazev, subcatNazev, index);
+        selectCategory(catNazev, subcatNazev, index ){
+            this.$emit('selectCategory', catNazev, subcatNazev, index);
             this.isOpen = false;
             this.selectedCategoryMarked = index;
         }
